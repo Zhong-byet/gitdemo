@@ -10,3 +10,11 @@ for i in range(0,n):
 kind=list(map(int,input().split()))#输入种类
 y=list(map(int,input().split()))#输入待测样本
 l=[]#创建一个空列表
+for i in range(0,n):
+    array1=np.tile(a[i],(1,1))#得到矩阵
+    array2=np.tile(y,(1,1))#得到矩阵
+    array3=array1-array2#两个矩阵对应元素相减
+    array4=array3**2#对矩阵各元素进行平方
+    l.append(math.sqrt(array4.sum(axis=1)))#得到距离并加入到集合l中
+m=min(l)#得到l的最小值
+print(kind[l.index(m)]) #找到最小值的位置，然后输出最小值出时的种类
